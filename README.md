@@ -2,6 +2,9 @@
 
 **AI-Powered Voice Ordering System for Coffee Shops**
 
+![Dutch Bros Co-Pilot](https://github.com/user-attachments/assets/9c5a111d-611d-48bd-8ab8-13002361931f)
+
+
 Convert natural customer conversations into structured, actionable orders in seconds. Built with OpenAI Whisper and Meta Llama 3.1 70B.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
