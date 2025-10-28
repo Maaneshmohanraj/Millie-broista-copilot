@@ -1,0 +1,72 @@
+# Broista Copilot - Git Ignore Rules
+
+# Environment Variables
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Audio Files (can be large)
+*.wav
+*.mp3
+*.m4a
+data/audio/*.wav
+
+# Cache
+data/cache/
+*.npy
+*.pkl
+*.cache
+
+# Outputs
+clean_order.json
+extractor_output.json
+*.log
+
+# AWS
+.aws/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation
+docs/_build/
