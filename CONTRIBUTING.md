@@ -405,20 +405,6 @@ Contributors will be:
 - [README.md](README.md) - Project overview
 - [SETUP.md](SETUP.md) - Setup instructions
 
-### External Resources
-- [PEP 8](https://pep8.org/) - Python style guide
-- [Conventional Commits](https://www.conventionalcommits.org/) - Commit message format
-- [GitHub Flow](https://guides.github.com/introduction/flow/) - Branching strategy
-
----
-
-## 💬 Questions?
-
-- **GitHub Discussions:** Ask questions and share ideas
-- **GitHub Issues:** Report bugs and request features
-- **Email:** [your.email@example.com]
-
----
 
 ## 🙏 Thank You!
 
