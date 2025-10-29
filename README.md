@@ -501,9 +501,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Project Maintainer:** [Your Name]
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+**Project Maintainer:** Maanesh
+- GitHub: [@Maaneshmohanraj](https://github.com/maaneshmohanraj)
+- Email: maaneshmohanraj@gmail.com
 
 ---
 
