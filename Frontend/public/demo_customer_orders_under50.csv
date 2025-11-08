@@ -1,0 +1,44 @@
+CUSTOMER_ID,CUSTOMER_NAME,ORDER_ID,ORDER_NUMBER,BUSINESS_DATE,ITEM_NAME,ITEM_QUANTITY,ITEM_AMOUNT_TOTAL,CITY,EMAIL,PHONE_NUMBER
+CUST0000,Brian Johnson,E0210504,1860,2025-10-23 07:46:53,Caramel Breve,2,6.29,Port Jason,gavinwilson@hotmail.com,+1-794-542-4587x69951
+CUST0000,Brian Johnson,54481BA2,7949,2025-10-21 10:25:04,Mocha,2,8.46,Port Jason,gavinwilson@hotmail.com,+1-794-542-4587x69951
+CUST0000,Brian Johnson,581A838F,6578,2025-10-18 13:57:52,Chai Latte,2,3.79,Port Jason,gavinwilson@hotmail.com,+1-794-542-4587x69951
+CUST0000,Brian Johnson,956AF012,9322,2025-10-14 09:29:08,Hot Chocolate,1,8.33,Port Jason,gavinwilson@hotmail.com,+1-794-542-4587x69951
+CUST0000,Brian Johnson,EA23522F,6734,2025-10-08 21:29:29,Mocha,1,3.55,Port Jason,gavinwilson@hotmail.com,+1-794-542-4587x69951
+CUST0001,Robert Coleman,D83232EB,9666,2025-10-23 03:01:34,Caramel Breve,1,3.77,New Victoriamouth,tanyaphelps@gmail.com,8670209955
+CUST0001,Robert Coleman,CA091382,5555,2025-09-30 06:51:12,Mocha,2,3.04,New Victoriamouth,tanyaphelps@gmail.com,8670209955
+CUST0002,Lisa Arellano,EA823368,2528,2025-10-17 06:16:43,Caramel Breve,1,6.34,Jodifurt,jasonhardy@hotmail.com,695.443.5183
+CUST0002,Lisa Arellano,C20F3707,5658,2025-10-17 01:59:44,Cold Brew,1,8.41,Jodifurt,jasonhardy@hotmail.com,695.443.5183
+CUST0002,Lisa Arellano,8996660C,9433,2025-10-02 08:22:41,Mocha,1,3.09,Jodifurt,jasonhardy@hotmail.com,695.443.5183
+CUST0002,Lisa Arellano,DFCE8F1B,3747,2025-09-27 21:04:44,Hot Chocolate,2,7.32,Jodifurt,jasonhardy@hotmail.com,695.443.5183
+CUST0002,Lisa Arellano,76953670,6393,2025-09-25 02:32:37,Cold Brew,1,8.31,Jodifurt,jasonhardy@hotmail.com,695.443.5183
+CUST0003,William Moore,50E7708E,1775,2025-10-15 11:51:53,Caramel Breve,2,5.15,Port Julie,kaylavillegas@smith.info,552-996-0299
+CUST0003,William Moore,3F6F5005,7235,2025-10-03 15:17:39,Cold Brew,1,6.35,Port Julie,kaylavillegas@smith.info,552-996-0299
+CUST0003,William Moore,D0D3EB65,2585,2025-10-01 20:05:53,Cold Brew,2,5.34,Port Julie,kaylavillegas@smith.info,552-996-0299
+CUST0004,Christina Phillips,82D614CE,1995,2025-10-19 02:23:15,Hot Chocolate,1,8.07,Jonesberg,gwilliams@russell.biz,(587)216-2763
+CUST0004,Christina Phillips,245367E9,4843,2025-10-05 12:03:37,Hot Chocolate,1,8.33,Jonesberg,gwilliams@russell.biz,(587)216-2763
+CUST0004,Christina Phillips,1D753C56,7873,2025-10-03 20:08:54,Cold Brew,2,5.17,Jonesberg,gwilliams@russell.biz,(587)216-2763
+CUST0005,Michael Malone,636A84C1,8916,2025-10-14 02:30:18,Mocha,1,7.56,Portertown,ronaldluna@alexander-zhang.com,001-205-198-6957x6686
+CUST0005,Michael Malone,661E3629,5859,2025-10-11 21:53:52,Cold Brew,2,4.52,Portertown,ronaldluna@alexander-zhang.com,001-205-198-6957x6686
+CUST0005,Michael Malone,99C70CDB,6276,2025-10-06 15:13:00,Chai Latte,1,3.09,Portertown,ronaldluna@alexander-zhang.com,001-205-198-6957x6686
+CUST0005,Michael Malone,B13DD9DF,3568,2025-09-28 10:50:02,Iced Latte,2,4.61,Portertown,ronaldluna@alexander-zhang.com,001-205-198-6957x6686
+CUST0005,Michael Malone,F0455632,2016,2025-09-25 14:17:27,Hot Chocolate,2,7.64,Portertown,ronaldluna@alexander-zhang.com,001-205-198-6957x6686
+CUST0006,Suzanne Ferguson,80BBB666,4099,2025-10-19 23:37:12,Iced Latte,2,5.47,Fergusonborough,wilsonmichael@wagner.com,(240)061-6300x574
+CUST0006,Suzanne Ferguson,667D3A1A,4104,2025-10-17 08:02:00,Hot Chocolate,2,6.66,Fergusonborough,wilsonmichael@wagner.com,(240)061-6300x574
+CUST0006,Suzanne Ferguson,E306C667,6618,2025-10-02 21:18:21,Iced Latte,2,7.01,Fergusonborough,wilsonmichael@wagner.com,(240)061-6300x574
+CUST0006,Suzanne Ferguson,BF525BEE,6892,2025-10-01 01:00:59,Mocha,1,6.58,Fergusonborough,wilsonmichael@wagner.com,(240)061-6300x574
+CUST0007,Brian Gomez,564E502A,8858,2025-10-11 14:33:16,Iced Latte,2,6.1,New Mark,asanchez@gmail.com,(450)542-9440
+CUST0007,Brian Gomez,F9B7EF85,9110,2025-10-08 10:24:44,Hot Chocolate,1,7.18,New Mark,asanchez@gmail.com,(450)542-9440
+CUST0007,Brian Gomez,A021DD32,1206,2025-10-02 12:20:42,Mocha,2,5.42,New Mark,asanchez@gmail.com,(450)542-9440
+CUST0007,Brian Gomez,E4CA606B,9154,2025-10-02 03:25:41,Caramel Breve,1,5.11,New Mark,asanchez@gmail.com,(450)542-9440
+CUST0007,Brian Gomez,12CCD903,8385,2025-10-01 03:46:39,Hot Chocolate,1,3.22,New Mark,asanchez@gmail.com,(450)542-9440
+CUST0008,Nicholas Mccarthy,0B1F90B8,6450,2025-10-19 09:42:02,Mocha,1,7.93,Whiteville,pmartin@yahoo.com,(990)923-8120x9756
+CUST0008,Nicholas Mccarthy,E807DEED,3693,2025-10-04 14:55:54,Cold Brew,2,4.2,Whiteville,pmartin@yahoo.com,(990)923-8120x9756
+CUST0008,Nicholas Mccarthy,896D5CB9,2678,2025-09-30 23:47:09,Caramel Breve,1,4.26,Whiteville,pmartin@yahoo.com,(990)923-8120x9756
+CUST0008,Nicholas Mccarthy,1C0D8C4B,4157,2025-09-27 21:36:14,Cold Brew,2,6.43,Whiteville,pmartin@yahoo.com,(990)923-8120x9756
+CUST0008,Nicholas Mccarthy,05574BE7,2757,2025-09-24 07:44:45,Chai Latte,1,6.32,Whiteville,pmartin@yahoo.com,(990)923-8120x9756
+CUST0009,Karen Ward,BAD81DE2,2306,2025-10-23 17:14:49,Hot Chocolate,1,7.5,East Davidland,mario01@hotmail.com,549.757.1797
+CUST0009,Karen Ward,C085D4FE,6864,2025-09-26 04:15:55,Caramel Breve,1,3.91,East Davidland,mario01@hotmail.com,549.757.1797
+CUST0010,Samantha Miranda,F31F6B45,1663,2025-10-23 20:05:58,Caramel Breve,2,4.2,Lake John,sierrabutler@hotmail.com,(906)570-7551x8414
+CUST0010,Samantha Miranda,BF6E60B0,5413,2025-10-06 22:16:09,Chai Latte,1,3.66,Lake John,sierrabutler@hotmail.com,(906)570-7551x8414
+CUST0010,Samantha Miranda,86090BB0,2495,2025-09-28 02:43:56,Iced Latte,2,5.0,Lake John,sierrabutler@hotmail.com,(906)570-7551x8414
+CUST0010,Samantha Miranda,0399F669,7585,2025-09-26 01:55:34,Cold Brew,2,4.38,Lake John,sierrabutler@hotmail.com,(906)570-7551x8414

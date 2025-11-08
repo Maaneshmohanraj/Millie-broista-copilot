@@ -1,0 +1,22 @@
+# Core Framework
+fastapi
+uvicorn[standard]
+httpx
+
+amazon-transcribe
+python-dotenv
+
+pydantic
+numpy
+scikit-learn
+fuzzywuzzy
+python-Levenshtein
+
+sentence-transformers
+torch
+transformers
+
+websockets
+asyncio
+
+requests

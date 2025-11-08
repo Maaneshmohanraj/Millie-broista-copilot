@@ -1,0 +1,130 @@
+<div class="page">
+  <header class="topbar">
+    <h1>Customer Analytics Dashboard</h1>
+    <div class="actions">
+      <input
+        [formControl]="selectedCustomerId"
+        class="search"
+        placeholder="Enter CUSTOMER_ID (e.g., CUST0000)"
+      />
+      <button (click)="onSearch()" class="btn primary">Search Customer</button>
+      <button (click)="clearSearch()" class="btn">Clear</button>
+      <!-- Upload removed -->
+    </div>
+    <p class="hint" *ngIf="customerIds.length">
+      Try: {{ customerIds.slice(0, 6).join(', ') }} ({{ customerIds.length }} customers available)
+    </p>
+  </header>
+
+  <ng-container *ngIf="!loading; else loadingTpl">
+    <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+    <section *ngIf="summary as s; else emptyTpl" class="grid">
+      <div class="card span-2">
+        <h2>Customer Summary</h2>
+        <div class="kv">
+          <div class="kv-box"><div class="label">Customer ID</div><div class="value">{{ s.customerId }}</div></div>
+          <div class="kv-box"><div class="label">Customer Name</div><div class="value">{{ s.customerName || '—' }}</div></div>
+          <div class="kv-box"><div class="label">Total Visits</div><div class="value">{{ s.totalVisits }}</div></div>
+          <div class="kv-box"><div class="label">Total Spend</div><div class="value">${{ s.totalSpend | number:'1.2-2' }}</div></div>
+          <div class="kv-box"><div class="label">Last Visit</div><div class="value">{{ s.lastVisit | date:'MM/dd/yyyy' }}</div></div>
+          <div class="kv-box"><div class="label">Avg Spend/Visit</div><div class="value">${{ s.avgSpendPerVisit | number:'1.2-2' }}</div></div>
+          <div class="kv-box"><div class="label">Total Items Ordered</div><div class="value">{{ s.totalItemsOrdered }}</div></div>
+          <div class="kv-box">
+            <div class="label">Loyalty Status</div>
+            <div class="value">
+              <span class="badge" [class.ok]="s.loyaltyStatus !== 'NEW'">
+                {{ s.loyaltyStatus === 'REGULAR' ? '💙 Regular - Give sticker!' : (s.loyaltyStatus === 'VIP' ? '🏆 VIP' : 'New') }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card highlight">
+        <div class="fav-header">
+          <div>
+            <h3>{{ s.favoriteItems[0]?.name || '—' }}</h3>
+            <div class="fav-stats">
+              <div><span class="big">{{ s.favoriteItems[0]?.count || 0 }}</span><span>times ordered</span></div>
+              <div><span class="big">{{ (s.favoriteItems[0]?.share || 0) * 100 | number:'1.0-0' }}%</span><span>of all items</span></div>
+              <div><span class="big">${{ s.favoriteItems[0]?.spend || 0 | number:'1.2-2' }}</span><span>total spent</span></div>
+            </div>
+          </div>
+          <button class="btn">★ Favorite</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>All Favorite Items</h3>
+        <ul class="fav-list">
+          <li *ngFor="let f of s.favoriteItems; let i = index">
+            <div class="left">
+              <span class="rank">{{ i + 1 }}</span>
+              <span class="name">{{ f.name }}</span>
+              <span class="muted">{{ f.count }} ordered</span>
+              <span class="muted">{{ (f.share * 100) | number:'1.0-0' }}%</span>
+            </div>
+            <div class="bar">
+              <span [style.width.%]="Math.min(100, (f.count / (s.favoriteItems[0]?.count || 1)) * 100)"></span>
+            </div>
+            <div class="amt">${{ f.spend | number:'1.2-2' }}</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Loyalty Insights</h3>
+        <div class="insight">
+          <div class="icon">💰</div>
+          <div>
+            <div class="label">Customer Lifetime Value</div>
+            <div class="value">${{ s.clv | number:'1.2-2' }}</div>
+            <div class="hint">Estimated with retention factor</div>
+          </div>
+        </div>
+        <div class="insight">
+          <div class="icon">📈</div>
+          <div>
+            <div class="label">Engagement Score</div>
+            <div class="value">{{ s.engagementScore }}/100</div>
+          </div>
+        </div>
+        <div class="insight">
+          <div class="icon">🎖️</div>
+          <div>
+            <div class="label">VIP Status</div>
+            <div class="value">{{ s.loyaltyStatus === 'REGULAR' ? 'REGULAR' : s.loyaltyStatus }}</div>
+            <div class="hint" *ngIf="s.loyaltyStatus !== 'NEW'">Hand them a sticker!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-2">
+        <h3>Order History</h3>
+        <table class="table">
+          <thead>
+            <tr><th>Date</th><th>Order ID</th><th>Item Name</th><th>Quantity</th><th class="right">Amount</th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let o of s.orderHistory">
+              <td>{{ o.date | date:'MM/dd/yyyy' }}</td>
+              <td>{{ o.orderId }}</td>
+              <td>{{ o.itemName }}</td>
+              <td>{{ o.qty }}</td>
+              <td class="right">${{ o.amount | number:'1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </ng-container>
+
+  <ng-template #emptyTpl>
+    <div class="empty">Search for a customer to see analytics.</div>
+  </ng-template>
+
+  <ng-template #loadingTpl>
+    <div class="loading">Loading dataset…</div>
+  </ng-template>
+</div>

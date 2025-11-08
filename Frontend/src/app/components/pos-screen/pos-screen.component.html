@@ -1,0 +1,220 @@
+<!-- Time Slider Bar -->
+<div class="time-control-bar">
+  <div class="time-slider-container">
+    <label class="time-label">Simulate Time:</label>
+    <input 
+      type="range" 
+      min="0" 
+      max="1439" 
+      [value]="currentMinutes()"
+      (input)="onTimeSliderChange($event)"
+      class="time-slider">
+    <span class="time-display">{{ displayTime() }}</span>
+    <button (click)="resetTime()" class="reset-btn">Reset</button>
+  </div>
+</div>
+
+<!-- Main POS Layout with Tabs -->
+<div class="pos-layout">
+
+  <!-- Main Navigation Tabs -->
+  <nav class="main-nav">
+    <button 
+      [class.active]="activeTab() === 'menu'" 
+      (click)="setActiveTab('menu')">
+      Menu
+    </button>
+    <button 
+      [class.active]="activeTab() === 'cart'" 
+      (click)="setActiveTab('cart')">
+      Cart ({{ currentOrder().length }})
+    </button>
+    <button 
+      [class.active]="activeTab() === 'transcription'" 
+      (click)="setActiveTab('transcription')">
+      Live Transcription
+    </button>
+    <button 
+      [class.active]="activeTab() === 'analytics'" 
+      (click)="setActiveTab('analytics')">
+      Customer Analytics
+    </button>
+  <button
+      [class.active]="activeTab() === 'qr'"
+      (click)="setActiveTab('qr')">
+      QR
+    </button>
+  </nav>
+
+  <!-- Content Panels -->
+  <div class="content-panels">
+
+    <!-- Panel 1: Menu -->
+    <main class="menu-panel content-panel" *ngIf="activeTab() === 'menu'">
+      <header class="menu-header">
+        <div class="menu-header-top">
+          <h1>Create Order</h1>
+          <input type="text"
+            placeholder="Search menu items..."
+            class="search-bar"
+            #searchInput
+            [value]="searchTerm()"
+            (input)="setSearchTerm(searchInput.value)" />
+        </div>
+        
+        <nav class="category-tabs" *ngIf="!searchTerm()">
+          <button *ngFor="let category of categories()"
+                  [class.active]="category.id === selectedCategory()?.id"
+                  (click)="selectCategory(category)">
+            {{ category.name }}
+          </button>
+        </nav>
+      </header>
+
+      <section class="product-grid" *ngIf="selectedCategory() as category">
+        <div *ngFor="let product of (searchTerm() ? products() : (selectedCategory()?.products || [])) | filterProducts:searchTerm()"
+             class="product-card"
+             (click)="selectProduct(product)">
+          <img [src]="imagePath() + product.imagefilename" 
+               [alt]="product.name" 
+               class="product-image" />
+          <div class="product-info">
+            <span class="product-name">{{ product.name }}</span>
+            <span class="product-price">${{ product.cost.toFixed(2) }}</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Panel 2: Order Panel (Cart) -->
+    <aside class="order-panel content-panel" *ngIf="activeTab() === 'cart'">
+      <header class="order-header">
+        <h2>Current Order ({{ currentOrder().length }})</h2>
+      </header>
+
+      <div class="order-summary-scrollable">
+        <div *ngIf="currentOrder().length === 0" class="empty-cart">
+          Your order is empty.
+        </div>
+
+        <!-- CART ITEMS LIST -->
+        <div *ngIf="currentOrder().length > 0">
+          <div *ngFor="let item of currentOrder()" class="order-item">
+            <img 
+              [src]="getCartItemImage(item)" 
+              [alt]="item.name" 
+              class="cart-item-image"
+            />
+            <div class="order-item-details">
+              <span class="item-name hyperlink" (click)="editCartItem(item)">{{ item.name }}</span>
+              <span class="item-modifiers">{{ formatModifiers(item) }}</span>
+            </div>
+            <div class="order-item-controls">
+              <button (click)="decrementQuantity(item.id!); $event.stopPropagation();" class="control-btn">-</button>
+              <span class="item-quantity">{{ item.quantity }}</span>
+              <button (click)="incrementQuantity(item.id!); $event.stopPropagation();" class="control-btn">+</button>
+            </div>
+            <span class="item-price">${{ (item.unit_price * item.quantity).toFixed(2) }}</span>
+            <button (click)="removeFromOrder(item.id!); $event.stopPropagation();" class="control-btn remove-btn">&times;</button>
+          </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations-section" *ngIf="recommendations().length > 0 && currentOrder().length >= 2">
+          <h3 class="recommendations-title">💡 You might also like</h3>
+          <div class="recommendations-grid">
+            <div *ngFor="let rec of recommendations()" 
+                 class="recommendation-card"
+                 (click)="selectProduct(rec.product)">
+              <img [src]="imagePath() + rec.product.imagefilename" 
+                   [alt]="rec.product.name"
+                   class="recommendation-image" />
+              <div class="recommendation-info">
+                <span class="recommendation-name">{{ rec.product.name }}</span>
+                <span class="recommendation-reason">{{ rec.reason }}</span>
+                <span class="recommendation-price">${{ rec.product.cost.toFixed(2) }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer with customer info and totals -->
+      <footer class="order-summary-footer">
+        <div class="footer-content">
+          <div class="customer-info-section">
+            <label for="customerName">Customer Name:</label>
+            <input 
+              id="customerName" 
+              type="text"
+              [(ngModel)]="customerName"
+              placeholder="Enter customer name"
+              class="customer-name-input"
+            />
+            
+            <label for="orderNotes" class="notes-label">Order Notes (Optional):</label>
+            <textarea 
+              id="orderNotes" 
+              [(ngModel)]="orderNotes"
+              placeholder="Add special instructions or notes..."
+              class="order-notes-input"
+              rows="3"
+            ></textarea>
+          </div>
+          
+          <div class="price-summary-section">
+            <div class="price-line">
+              <span>Subtotal</span>
+              <span>${{ orderSubtotal().toFixed(2) }}</span>
+            </div>
+            <div class="price-line">
+              <span>Tax (8%)</span>
+              <span>${{ orderTax().toFixed(2) }}</span>
+            </div>
+            <div class="price-line total-line">
+              <span>Total</span>
+              <span>${{ orderTotal().toFixed(2) }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <button 
+          class="charge-button" 
+          [disabled]="currentOrder().length === 0 || !customerName.trim()"
+          (click)="submitOrder()">
+          Submit Order
+        </button>
+      </footer>
+    </aside>
+
+    <!-- Panel 3: Live Transcription -->
+    <div class="transcription-panel content-panel" *ngIf="activeTab() === 'transcription'">
+      <app-transcription></app-transcription>
+    </div>
+      <div class="qr-panel content-panel" *ngIf="activeTab() === 'qr'">
+    <app-qr-scanner (found)="onQrFound($event)"></app-qr-scanner>
+  </div>
+
+  <!-- Panel 5: Customer Analytics -->
+  <div class="analytics-panel content-panel" *ngIf="activeTab() === 'analytics'">
+    <app-customer-analytics></app-customer-analytics>
+  </div>
+
+  </div>
+
+</div>
+
+<!-- Modifier Modal -->
+<div class="modal-overlay" *ngIf="selectedProduct() && selectedProductModifiers() as modifiers">
+  <app-modifier-selector
+    class="modal-content"
+    [product]="selectedProduct()!"
+    [modifierChain]="modifiers"
+    [initialSelections]="cartItemSelections"
+    [editingCartItemId]="editingCartItemId"
+    [quantityFromCart]="modalQuantity()"
+    (orderItemReady)="addToOrder($event)"
+    (modifyItem)="modifyExistingItem($event)"
+    (cancel)="clearSelection()"
+  ></app-modifier-selector>
+</div>
