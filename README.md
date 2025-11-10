@@ -484,21 +484,6 @@ git push origin feature/your-feature-name
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **OpenAI Whisper** - Robust speech recognition
-- **Meta Llama** - Powerful language understanding
-- **AWS Bedrock** - Scalable model hosting
-- **Sentence Transformers** - Semantic similarity matching
-
----
-
 ## 📧 Contact
 
 **Project Maintainer:** Maanesh
