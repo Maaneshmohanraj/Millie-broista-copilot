@@ -432,31 +432,6 @@ print(f"✅ Test passed! Found {len(items)} items")
 
 ---
 
-## 🔮 Roadmap
-
-### Phase 2: Enhanced Intelligence
-- [ ] Multi-language support (Spanish, Mandarin)
-- [ ] Real-time streaming (WebSocket)
-- [ ] Accent adaptation
-- [ ] Background noise filtering
-- [ ] Voice authentication for loyalty
-
-### Phase 3: Business Features
-- [ ] Upsell suggestions
-- [ ] Order history personalization
-- [ ] Dietary restriction detection
-- [ ] Allergy warnings
-- [ ] Inventory integration
-
-### Phase 4: Scale
-- [ ] Multi-location deployment
-- [ ] Cloud-native infrastructure
-- [ ] Analytics dashboard
-- [ ] A/B testing framework
-- [ ] Continuous model fine-tuning
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
