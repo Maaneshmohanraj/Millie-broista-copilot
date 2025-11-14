@@ -13,7 +13,7 @@ Convert natural customer conversations into structured, actionable orders in sec
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone the repository
@@ -33,7 +33,7 @@ python src/production_entity_extractor.py
 
 ---
 
-## 📊 Results
+## Results
 
 **Test Case: 90-second real-world conversation**
 
@@ -51,7 +51,7 @@ python src/production_entity_extractor.py
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Audio Input → Transcription → Entity Extraction → Categorization → Output JSON
@@ -72,7 +72,7 @@ Audio Input → Transcription → Entity Extraction → Categorization → Outpu
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **Language:** Python 3.10+
 - **Speech Recognition:** OpenAI Whisper (base model)
@@ -82,7 +82,7 @@ Audio Input → Transcription → Entity Extraction → Categorization → Outpu
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 broista-copilot/
@@ -108,7 +108,7 @@ broista-copilot/
 
 ---
 
-## 🔧 Installation
+## Installation
 
 ### Prerequisites
 
@@ -171,7 +171,7 @@ AWS_SECRET_ACCESS_KEY=your_secret_key_here
 
 ---
 
-## 🎯 Usage
+## Usage
 
 ### Quick Test (All-in-One)
 
@@ -183,7 +183,7 @@ python src/production_entity_extractor.py
 **Output:**
 ```
 ======================================================================
-🎯 PRODUCTION ENTITY EXTRACTOR - COMPLETE TEST
+ PRODUCTION ENTITY EXTRACTOR - COMPLETE TEST
 ======================================================================
 
 Items Extracted: 5
@@ -220,7 +220,7 @@ print(f"Found {len(items)} items with {confidence:.0%} confidence")
 
 ---
 
-## 📊 Output Format
+## Output Format
 
 ### JSON Structure
 
@@ -278,32 +278,32 @@ print(f"Found {len(items)} items with {confidence:.0%} confidence")
 
 ## 💡 Key Features
 
-### 🧠 Conversation Intelligence
+### Conversation Intelligence
 - **Pronoun Resolution:** Understands "that", "it", "those"
 - **Modification Tracking:** "Add soft top" applies to last item
 - **Quantity Changes:** "Make that three" updates quantity
 - **Context Preservation:** Remembers across multiple turns
 
-### 🎯 High Accuracy
+### High Accuracy
 - **100% extraction** on real-world test
 - **Confidence scoring** for each item
 - **Status flags** (confirmed/review/uncertain)
 - **False positive filtering**
 
-### 🏗️ Production Ready
+### Production Ready
 - **Hybrid approach:** LLM + Python reliability
 - **Error handling** and validation
 - **Duplicate detection**
 - **Extensible architecture**
 
-### 💰 Cost Effective
+### Cost Effective
 - **$0.01 per order** (AWS Bedrock usage)
 - **Self-hosted Whisper** (no transcription API costs)
 - **Cached embeddings** (no repeated computation)
 
 ---
 
-## 🔬 Technical Details
+## Technical Details
 
 ### Extraction Strategy
 
@@ -342,7 +342,7 @@ print(f"Found {len(items)} items with {confidence:.0%} confidence")
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Run All Tests
 
@@ -370,7 +370,7 @@ print(f"✅ Test passed! Found {len(items)} items")
 
 ---
 
-## 🚀 Deployment Scenarios
+## Deployment Scenarios
 
 ### 1. Drive-Thru
 - Real-time audio capture from microphone
@@ -411,7 +411,7 @@ print(f"✅ Test passed! Found {len(items)} items")
 
 ---
 
-## 💰 Cost Analysis
+## Cost Analysis
 
 ### Per-Order Cost
 - **AWS Bedrock (Llama 70B):** ~$0.01
