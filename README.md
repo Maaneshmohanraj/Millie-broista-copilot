@@ -1,4 +1,4 @@
-# 🎯 Broista Copilot
+#  Broista Copilot
 
 **AI-Powered Voice Ordering System for Coffee Shops**
 
